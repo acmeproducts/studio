@@ -12,6 +12,8 @@ import { SwitchControl } from '@/components/controls/switch-control'
 import { ButtonRow } from '@/components/controls/button-row'
 import { Button } from '@/components/ui/button'
 import { GradientEditor } from '@/components/controls/gradient-editor'
+import { useShortcutActions } from '@/hooks/use-shortcut-actions'
+import { Kbd } from '@/components/ui/kbd'
 import { createLinesSketch } from './sketch'
 import { DEFAULTS } from './types'
 import type { LinesSettings } from './types'
@@ -97,6 +99,7 @@ export default function Lines() {
   )
 
   useP5(containerRef, sketchFn, settings)
+  useShortcutActions({ randomize, reset, download })
 
   function randomize() {
     const shapes: LinesSettings['shape'][] = ['horizontal', 'vertical', 'circles', 'dots', 'spiral', 'radial', 'lissajous']
@@ -242,9 +245,9 @@ export default function Lines() {
     <>
       <Sidebar footer={
         <ButtonRow>
-          <Button variant="secondary" onClick={randomize}>Randomize</Button>
-          <Button variant="secondary" onClick={reset}>Reset</Button>
-          <Button variant="primary" onClick={download}>Download PNG</Button>
+          <Button variant="secondary" onClick={randomize}>Randomize <Kbd>R</Kbd></Button>
+          <Button variant="secondary" onClick={reset}>Reset <Kbd>⌫</Kbd></Button>
+          <Button variant="primary" onClick={download}>Download PNG <Kbd>⌘S</Kbd></Button>
           <Button variant="secondary" onClick={toggleRecording}>
             {isRecording ? 'Stop Recording' : 'Record MP4'}
           </Button>

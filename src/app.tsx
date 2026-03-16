@@ -14,7 +14,7 @@ function getDefaultTool(): string {
 function ToolLoading() {
   return (
     <>
-      <div className="flex w-sidebar shrink-0 flex-col border-r border-border-control bg-sidebar" />
+      <div className="hidden w-sidebar shrink-0 flex-col border-r border-border-control bg-sidebar md:flex" />
       <div className="flex flex-1 items-center justify-center bg-canvas">
         <div className="flex flex-col items-center gap-3">
           <div className="h-5 w-5 animate-spin rounded-full border-2 border-text-muted border-t-transparent" />

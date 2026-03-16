@@ -11,6 +11,8 @@ import { ColorControl } from '@/components/controls/color-control'
 import { ButtonRow } from '@/components/controls/button-row'
 import { Button } from '@/components/ui/button'
 import { GradientEditor } from '@/components/controls/gradient-editor'
+import { useShortcutActions } from '@/hooks/use-shortcut-actions'
+import { Kbd } from '@/components/ui/kbd'
 import { createOrganicSketch } from './sketch'
 import type { OrganicSettings } from './types'
 import type { ColorStop } from '@/types/tools'
@@ -60,6 +62,7 @@ export default function Organic() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [settings, update, reset] = useSettings<OrganicSettings>('organic', DEFAULTS)
   const p5Ref = useP5(containerRef, createOrganicSketch, settings)
+  useShortcutActions({ randomize, reset, download })
 
   function handlePaletteChange(name: string) {
     if (name === 'custom') {
@@ -150,9 +153,9 @@ export default function Organic() {
     <>
       <Sidebar footer={
         <ButtonRow>
-          <Button variant="secondary" onClick={randomize}>Randomize</Button>
-          <Button variant="secondary" onClick={reset}>Reset</Button>
-          <Button variant="primary" onClick={download}>Download PNG</Button>
+          <Button variant="secondary" onClick={randomize}>Randomize <Kbd>R</Kbd></Button>
+          <Button variant="secondary" onClick={reset}>Reset <Kbd>⌫</Kbd></Button>
+          <Button variant="primary" onClick={download}>Download PNG <Kbd>⌘S</Kbd></Button>
         </ButtonRow>
       }>
         <h2 className="mb-3 text-sm font-medium text-text-primary">Organic</h2>

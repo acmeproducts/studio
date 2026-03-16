@@ -9,6 +9,8 @@ import { SelectControl } from "@/components/controls/select-control"
 import { PaletteEditor } from "@/components/controls/palette-editor"
 import { ButtonRow } from "@/components/controls/button-row"
 import { Button } from "@/components/ui/button"
+import { useShortcutActions } from '@/hooks/use-shortcut-actions'
+import { Kbd } from '@/components/ui/kbd'
 import { exportPNG, exportSVG, generateFilename } from "@/lib/export"
 import type { DitherSettings } from "./types"
 import {
@@ -249,6 +251,8 @@ export default function Dither() {
     if (svg) exportSVG(svg, generateFilename("dither", "svg"))
   }, [settings, buildEngineSettings])
 
+  useShortcutActions({ download: handleExportSVG })
+
   return (
     <>
       <Sidebar
@@ -259,7 +263,7 @@ export default function Dither() {
               className="w-full"
               onClick={handleExportSVG}
             >
-              Export SVG
+              Export SVG <Kbd>⌘S</Kbd>
             </Button>
             <Button
               variant="secondary"

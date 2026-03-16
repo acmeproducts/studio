@@ -11,6 +11,8 @@ import { ColorControl } from "@/components/controls/color-control"
 import { SwitchControl } from "@/components/controls/switch-control"
 import { ButtonRow } from "@/components/controls/button-row"
 import { Button } from "@/components/ui/button"
+import { useShortcutActions } from '@/hooks/use-shortcut-actions'
+import { Kbd } from '@/components/ui/kbd'
 import { createAsciiSketch } from "./sketch"
 import type { AsciiSettings, SetConfig } from "./types"
 import type p5 from "p5"
@@ -387,6 +389,8 @@ export default function Ascii() {
     update(patch)
   }
 
+  useShortcutActions({ randomize, reset, download: handleExportPNG })
+
   const enabledSets = SET_NAMES.filter((n) => settings.setConfig[n].enabled)
 
   return (
@@ -395,17 +399,17 @@ export default function Ascii() {
         footer={
           <ButtonRow>
             <Button variant="secondary" className="w-full" onClick={randomize}>
-              Randomize
+              Randomize <Kbd>R</Kbd>
             </Button>
             <Button variant="secondary" className="w-full" onClick={reset}>
-              Reset
+              Reset <Kbd>⌫</Kbd>
             </Button>
             <Button
               variant="primary"
               className="w-full"
               onClick={handleExportPNG}
             >
-              Download
+              Download <Kbd>⌘S</Kbd>
             </Button>
           </ButtonRow>
         }

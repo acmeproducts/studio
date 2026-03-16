@@ -1,10 +1,10 @@
 import { forwardRef } from "react"
 
 const CanvasArea = forwardRef<HTMLDivElement, React.ComponentProps<"div">>(
-  ({ children, ...props }, ref) => (
+  ({ children, className, ...props }, ref) => (
     <div
       ref={ref}
-      className="flex flex-1 items-center justify-center bg-canvas"
+      className={`flex flex-1 items-center justify-center bg-canvas order-1 md:order-none ${className ?? ''}`}
       {...props}
     >
       {children}

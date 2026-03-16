@@ -11,6 +11,8 @@ import { ColorControl } from '@/components/controls/color-control'
 import { SwitchControl } from '@/components/controls/switch-control'
 import { ButtonRow } from '@/components/controls/button-row'
 import { Button } from '@/components/ui/button'
+import { useShortcutActions } from '@/hooks/use-shortcut-actions'
+import { Kbd } from '@/components/ui/kbd'
 import { createPlotterSketch, PALETTES } from './sketch'
 import type { PlotterSettings } from './types'
 
@@ -77,6 +79,7 @@ export default function Plotter() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [settings, update, reset] = useSettings<PlotterSettings>('plotter', DEFAULTS)
   const p5Ref = useP5(containerRef, createPlotterSketch, settings)
+  useShortcutActions({ randomize, reset, download })
 
   function handlePaletteChange(name: string) {
     if (name === 'custom') {
@@ -200,9 +203,9 @@ export default function Plotter() {
     <>
       <Sidebar footer={
         <ButtonRow>
-          <Button variant="secondary" onClick={randomize}>Randomize</Button>
-          <Button variant="secondary" onClick={reset}>Reset</Button>
-          <Button variant="primary" onClick={download}>Download PNG</Button>
+          <Button variant="secondary" onClick={randomize}>Randomize <Kbd>R</Kbd></Button>
+          <Button variant="secondary" onClick={reset}>Reset <Kbd>⌫</Kbd></Button>
+          <Button variant="primary" onClick={download}>Download PNG <Kbd>⌘S</Kbd></Button>
         </ButtonRow>
       }>
         <h2 className="mb-3 text-sm font-medium text-text-primary">Plotter</h2>

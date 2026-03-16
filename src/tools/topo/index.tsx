@@ -10,6 +10,8 @@ import { SelectControl } from '@/components/controls/select-control'
 import { ColorControl } from '@/components/controls/color-control'
 import { ButtonRow } from '@/components/controls/button-row'
 import { Button } from '@/components/ui/button'
+import { useShortcutActions } from '@/hooks/use-shortcut-actions'
+import { Kbd } from '@/components/ui/kbd'
 import { createTopoSketch } from './sketch'
 import type { TopoSettings } from './types'
 
@@ -55,6 +57,7 @@ export default function Topo() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [settings, update, reset] = useSettings<TopoSettings>('topo', DEFAULTS)
   const p5Ref = useP5(containerRef, createTopoSketch, settings)
+  useShortcutActions({ randomize, reset, download })
 
   function randomize() {
     const paletteNames = ['mono', 'topo', 'ocean', 'earth', 'sunset', 'forest', 'heat']
@@ -116,9 +119,9 @@ export default function Topo() {
     <>
       <Sidebar footer={
         <ButtonRow>
-          <Button variant="secondary" onClick={randomize}>Randomize</Button>
-          <Button variant="secondary" onClick={reset}>Reset</Button>
-          <Button variant="primary" onClick={download}>Download PNG</Button>
+          <Button variant="secondary" onClick={randomize}>Randomize <Kbd>R</Kbd></Button>
+          <Button variant="secondary" onClick={reset}>Reset <Kbd>⌫</Kbd></Button>
+          <Button variant="primary" onClick={download}>Download PNG <Kbd>⌘S</Kbd></Button>
         </ButtonRow>
       }>
         <h2 className="mb-3 text-sm font-medium text-text-primary">Topo</h2>
