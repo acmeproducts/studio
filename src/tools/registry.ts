@@ -3,22 +3,16 @@ import type { ToolDefinition } from "@/types/tools"
 
 export const tools: ToolDefinition[] = [
   {
-    id: "topo",
-    name: "Topo",
-    icon: "topo",
-    component: lazy(() => import("@/tools/topo")),
+    id: "ascii",
+    name: "ASCII",
+    icon: "ascii",
+    component: lazy(() => import("@/tools/ascii")),
   },
   {
     id: "blocks",
     name: "Blocks",
     icon: "blocks",
     component: lazy(() => import("@/tools/blocks")),
-  },
-  {
-    id: "organic",
-    name: "Organic",
-    icon: "organic",
-    component: lazy(() => import("@/tools/organic")),
   },
   {
     id: "dither",
@@ -33,22 +27,28 @@ export const tools: ToolDefinition[] = [
     component: lazy(() => import("@/tools/gradients")),
   },
   {
+    id: "lines",
+    name: "Lines",
+    icon: "lines",
+    component: lazy(() => import("@/tools/lines")),
+  },
+  {
+    id: "organic",
+    name: "Organic",
+    icon: "organic",
+    component: lazy(() => import("@/tools/organic")),
+  },
+  {
     id: "plotter",
     name: "Plotter",
     icon: "plotter",
     component: lazy(() => import("@/tools/plotter")),
   },
-{
-    id: "ascii",
-    name: "ASCII",
-    icon: "ascii",
-    component: lazy(() => import("@/tools/ascii")),
-  },
   {
-    id: "lines",
-    name: "Lines",
-    icon: "lines",
-    component: lazy(() => import("@/tools/lines")),
+    id: "topo",
+    name: "Topo",
+    icon: "topo",
+    component: lazy(() => import("@/tools/topo")),
   },
 ]
 

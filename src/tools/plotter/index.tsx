@@ -208,7 +208,7 @@ export default function Plotter() {
           <Button variant="primary" onClick={download}>Download PNG <Kbd>⌘S</Kbd></Button>
         </ButtonRow>
       }>
-        <h2 className="mb-3 text-sm font-medium text-text-primary">Plotter</h2>
+        <h2 className="mb-3 text-base font-medium text-text-primary">Plotter</h2>
 
         <Section title="Canvas">
           <SelectControl

@@ -275,7 +275,7 @@ export default function Dither() {
           </ButtonRow>
         }
       >
-        <h2 className="mb-3 text-sm font-medium text-text-primary">Dither</h2>
+        <h2 className="mb-3 text-base font-medium text-text-primary">Dither</h2>
         <div className="flex flex-col gap-4">
           <Section title="Source">
             <SelectControl

@@ -182,7 +182,7 @@ export default function Gradients() {
           </Button>
         </ButtonRow>
       }>
-        <h2 className="mb-3 text-sm font-medium text-text-primary">Gradients</h2>
+        <h2 className="mb-3 text-base font-medium text-text-primary">Gradients</h2>
 
         <Section title="Colors">
           <GradientEditor

@@ -101,7 +101,7 @@ export default function Blocks() {
           <Button variant="primary" onClick={download}>Download PNG <Kbd>⌘S</Kbd></Button>
         </ButtonRow>
       }>
-        <h2 className="mb-3 text-sm font-medium text-text-primary">Blocks</h2>
+        <h2 className="mb-3 text-base font-medium text-text-primary">Blocks</h2>
 
         <Section title="Pattern">
           <SliderControl

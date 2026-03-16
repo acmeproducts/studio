@@ -3,12 +3,6 @@ import { NavLink, useLocation } from "react-router-dom"
 import { tools, pages } from "@/tools/registry"
 import { ToolIcon } from "@/components/icons"
 import { useMobile } from "@/hooks/use-mobile"
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-} from "@/components/ui/tooltip"
-import { Kbd } from "@/components/ui/kbd"
 
 export function ToolSwitcher() {
   const isMobile = useMobile()
@@ -76,77 +70,65 @@ export function ToolSwitcher() {
 
   return (
     <nav className="scrollbar-thin flex w-toolbar shrink-0 flex-col items-center gap-3 overflow-y-auto border-r border-border-control bg-sidebar py-3">
-      {tools.map((tool, index) => (
-        <Tooltip key={tool.id}>
-          <TooltipTrigger asChild>
-            <NavLink
-              to={`/${tool.id}`}
-              onClick={() =>
-                localStorage.setItem("studio:last-tool", tool.id)
-              }
-              className="relative flex flex-col items-center gap-1.5"
-            >
-              {({ isActive }) => (
-                <>
-                  <div
-                    className={`rounded-lg p-0.5 transition-all duration-150 ${
-                      isActive
-                        ? "bg-white/10 ring-1 ring-white/20"
-                        : "grayscale brightness-50 hover:brightness-75 hover:grayscale-50"
-                    }`}
-                  >
-                    <ToolIcon tool={tool.id} />
-                  </div>
-                  <span
-                    className={`text-[9px] leading-none transition-colors duration-150 ${
-                      isActive ? "text-white" : "text-text-muted"
-                    }`}
-                  >
-                    {tool.name}
-                  </span>
-                </>
-              )}
-            </NavLink>
-          </TooltipTrigger>
-          <TooltipContent side="right" className="flex items-center gap-1.5">
-            {tool.name} <Kbd>{index + 1}</Kbd>
-          </TooltipContent>
-        </Tooltip>
+      {tools.map((tool) => (
+        <NavLink
+          key={tool.id}
+          to={`/${tool.id}`}
+          onClick={() =>
+            localStorage.setItem("studio:last-tool", tool.id)
+          }
+          className="relative flex flex-col items-center gap-1.5"
+        >
+          {({ isActive }) => (
+            <>
+              <div
+                className={`rounded-lg p-0.5 transition-all duration-150 ${
+                  isActive
+                    ? "bg-white/10 ring-1 ring-white/20"
+                    : "grayscale brightness-50 hover:brightness-75 hover:grayscale-50"
+                }`}
+              >
+                <ToolIcon tool={tool.id} />
+              </div>
+              <span
+                className={`text-[9px] leading-none transition-colors duration-150 ${
+                  isActive ? "text-white" : "text-text-muted"
+                }`}
+              >
+                {tool.name}
+              </span>
+            </>
+          )}
+        </NavLink>
       ))}
       <div className="mt-auto" />
       {pages.map((page) => (
-        <Tooltip key={page.id}>
-          <TooltipTrigger asChild>
-            <NavLink
-              to={`/${page.id}`}
-              className="relative flex flex-col items-center gap-1.5"
-            >
-              {({ isActive }) => (
-                <>
-                  <div
-                    className={`rounded-lg p-0.5 transition-all duration-150 ${
-                      isActive
-                        ? "bg-white/10 ring-1 ring-white/20"
-                        : "grayscale brightness-50 hover:brightness-75 hover:grayscale-50"
-                    }`}
-                  >
-                    <ToolIcon tool={page.id} />
-                  </div>
-                  <span
-                    className={`text-[9px] leading-none transition-colors duration-150 ${
-                      isActive ? "text-white" : "text-text-muted"
-                    }`}
-                  >
-                    {page.name}
-                  </span>
-                </>
-              )}
-            </NavLink>
-          </TooltipTrigger>
-          <TooltipContent side="right">
-            {page.name}
-          </TooltipContent>
-        </Tooltip>
+        <NavLink
+          key={page.id}
+          to={`/${page.id}`}
+          className="relative flex flex-col items-center gap-1.5"
+        >
+          {({ isActive }) => (
+            <>
+              <div
+                className={`rounded-lg p-0.5 transition-all duration-150 ${
+                  isActive
+                    ? "bg-white/10 ring-1 ring-white/20"
+                    : "grayscale brightness-50 hover:brightness-75 hover:grayscale-50"
+                }`}
+              >
+                <ToolIcon tool={page.id} />
+              </div>
+              <span
+                className={`text-[9px] leading-none transition-colors duration-150 ${
+                  isActive ? "text-white" : "text-text-muted"
+                }`}
+              >
+                {page.name}
+              </span>
+            </>
+          )}
+        </NavLink>
       ))}
     </nav>
   )

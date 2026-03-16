@@ -414,7 +414,7 @@ export default function Ascii() {
           </ButtonRow>
         }
       >
-        <h2 className="mb-3 text-sm font-medium text-text-primary">ASCII</h2>
+        <h2 className="mb-3 text-base font-medium text-text-primary">ASCII</h2>
         <div className="flex flex-col gap-4">
           {/* Image */}
           <Section title="Image">
