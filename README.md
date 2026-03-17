@@ -4,7 +4,24 @@ A unified design studio combining 8 generative art tools into a single web app.
 
 **Live:** [studio.neato.fun](https://studio.neato.fun) — Made by [@Shpigford](https://x.com/Shpigford)
 
+<img src="public/ui.png" alt="Studio UI — Plotter tool" width="100%" />
+
 ## Tools
+
+<table>
+  <tr>
+    <td align="center"><img src="public/topo.png" width="180" /><br /><b>Topo</b></td>
+    <td align="center"><img src="public/blocks.png" width="180" /><br /><b>Blocks</b></td>
+    <td align="center"><img src="public/organic.jpg" width="180" /><br /><b>Organic</b></td>
+    <td align="center"><img src="public/dither.png" width="180" /><br /><b>Dither</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="public/gradients.png" width="180" /><br /><b>Gradients</b></td>
+    <td align="center"><img src="public/plotter.png" width="180" /><br /><b>Plotter</b></td>
+    <td align="center"><img src="public/ascii.jpg" width="180" /><br /><b>ASCII</b></td>
+    <td align="center"><img src="public/lines.png" width="180" /><br /><b>Lines</b></td>
+  </tr>
+</table>
 
 ### Topo
 Topographic contour maps generated from Perlin noise elevation fields. Uses marching squares for contour extraction with spline-interpolated smoothing. Supports single color, elevation gradient, and palette-based coloring with 7 presets.
